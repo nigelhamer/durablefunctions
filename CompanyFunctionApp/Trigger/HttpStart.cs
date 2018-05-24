@@ -12,7 +12,7 @@ namespace CompanyFunctionApp.Trigger
     {
         [FunctionName("HttpStart")]
         public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
             [OrchestrationClient] DurableOrchestrationClientBase starter,
             string functionName,
             ILogger log)
